@@ -11,6 +11,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
+      sign_in @store
       flash[:success] = "Welcome to the BeansStreet!"
       redirect_to @store
     else
