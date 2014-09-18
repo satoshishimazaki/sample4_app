@@ -1,5 +1,7 @@
 Sample4App::Application.routes.draw do
+  resources :stores
   root  'static_pages#home'
+  match '/signup',  to: 'stores#new',            via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
