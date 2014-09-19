@@ -1,8 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :signed_in_store
+  before_action :signed_in_store,  only:[:create, :destroy, :new, :index]
 
   def new
   	  @article = Article.new
+  end
+
+  def show
+      @article = Article.find(params[:id])
   end
 
   def index
