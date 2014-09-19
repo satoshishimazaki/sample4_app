@@ -1,3 +1,11 @@
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
   <h1>Let's enjoy HereNow!!</h1>
+<ul>
+    <% @articles.each do |article| %>
+    <p><li><%= link_to article.herenowtitle+"/", article_path(article.id) %> 
+    	<%= link_to article.title, article_path(article.id) %></li></p>
+    	  <%= time_ago_in_words(article.created_at) %> ago.
+    <% end %>
+</ul>
+</div>

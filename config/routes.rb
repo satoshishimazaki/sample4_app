@@ -1,6 +1,7 @@
 Sample4App::Application.routes.draw do
   resources :stores
   resources :sessions, only: [:new, :create, :destroy]
+  resources :articles, only: [:create, :destroy, :new, :index]
   root  'static_pages#home'
   match '/signup',  to: 'stores#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

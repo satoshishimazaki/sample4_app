@@ -20,6 +20,16 @@ module SessionsHelper
     @current_store ||= Store.find_by(remember_token: remember_token)
   end
 
+  def current_store?(store)
+    store == current_store
+  end
+
+  def signed_in_store
+    unless signed_in?
+      redirect_to signin_url, notice: "Please sign in."
+    end
+  end
+
   def sign_out
     self.current_store = nil
     cookies.delete(:remember_token)

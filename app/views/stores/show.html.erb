@@ -1,10 +1,24 @@
 <% provide(:title, @store.name) %>
 <div class="row">
+　 <div class="span8">
+    <% if @store.articles.any? %>
+      <h3>Articles (<%= @store.articles.count %>)</h3>
+      <ol class="articles">
+        <%= render @articles %>
+      </ol>
+      <%= will_paginate @articles %>
+      <%= link_to "Sign up now!", class: "btn btn-large btn-primary" %>
+    <% end %>
   <aside class="span4">
     <section>
       <h1>
         <%= @store.name %>
       </h1>
+      <p>基本情報</p>
+      <p>住所:<%= @store.address %></p>
+      <p>電話番号:<%= @store.tell %></p>
+      <p>URL:<%= @store.url %></p>
+      <p>メールアドレス:<%= @store.email %></p>
     </section>
   </aside>
 </div>
