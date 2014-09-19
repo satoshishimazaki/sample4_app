@@ -1,7 +1,7 @@
 <h1> 詳細情報</h1>
 
 <ul>
-   <% @article.store.each do |article| %>
-     <p><li><%= link_to article.herenowtitle+"/", article_path(article.id) %> <%= link_to article.title, article_path(article.id) %></li></p>
-   <% end %>
+    <% @articles.store.each do |article| %>
+    <p><li><%= link_to article.herenowtitle+"/", article_path(article.id) %> <%= link_to article.title, article_path(article.id) %></li></p>
+    <% end %>
 </ul>

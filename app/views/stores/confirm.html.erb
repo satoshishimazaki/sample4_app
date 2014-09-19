@@ -1,0 +1,7 @@
+<h2><%= @store %></h2>
+
+<ul>
+<% @store.articles.each do |article| %>
+  <li><%= article.herenowtitle %> </li>
+<% end %>
+</ul>
