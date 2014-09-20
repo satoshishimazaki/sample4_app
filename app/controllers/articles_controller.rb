@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-      @articles = Article.all
+      @articles = current_store.articles.paginate(page: params[:page])
   end
 
   def create
