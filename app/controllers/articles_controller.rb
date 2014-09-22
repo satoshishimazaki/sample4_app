@@ -7,6 +7,11 @@ class ArticlesController < ApplicationController
 
   def show
       @article = Article.find(params[:id])
+      if params[:format].in?(["jpg", "png", "gif"])
+        send_image
+      else
+        render "articles/show"
+      end
   end
 
   def index
@@ -30,5 +35,14 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit( :content, :herenowtitle, :title )
+    end
+   
+    def send_image
+      if @article.image.present?
+        send_data @article.image.data,
+          type: @article.image.content_type, disposition: "inline"
+      else
+        raise NotFound
+      end
     end
 end

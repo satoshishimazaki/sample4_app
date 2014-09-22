@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919013444) do
+ActiveRecord::Schema.define(version: 20140922023515) do
 
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20140919013444) do
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
+
+  create_table "articles_images", force: true do |t|
+    t.integer  "article_id",   null: false
+    t.binary   "data"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles_images", ["article_id"], name: "index_articles_images_on_article_id"
 
   create_table "stores", force: true do |t|
     t.string   "name"

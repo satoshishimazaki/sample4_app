@@ -1,4 +1,5 @@
 class CreateArticles < ActiveRecord::Migration
+  # REVIEW カテゴリ（飲食、ショッピング）を追加してカテゴリ別表記をさせたいのですが、わからないです。
   def change
     create_table :articles do |t|
       t.string :herenowtitle
