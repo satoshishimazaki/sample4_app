@@ -3,7 +3,12 @@
 <ul>
     <p><li>Herenowtitle: <%= @article.herenowtitle %></li></p>
     <p><li>title: <%= @article.title %></li></p>
-    <p><li>content: </br><%= @article.content %></li></p>	
+    <p><li>content: </br><%= @article.content %></li></p>
+    <p><li><% if @article.image? %>
+    	   <%= image_tag @article.image.thumb.url %>
+    	     <% else %>
+    	   <%= image_tag 'noimage.gif' %>
+    	   <% end %><p><li>	
 </ul>
 
  <section>

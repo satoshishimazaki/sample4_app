@@ -1,11 +1,10 @@
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
   <h1>Let's enjoy HereNow!!</h1>
-<ul>　#REVIEW 写真をサムネイル表記させたいが、新しくモデルとテーブル作成したほうがよいのか、作成した場合のartcileとの連携をどのように表現すればよいのか。
-	#REVIEW 写真を大きくみせたデザインにしたいのですが、テンプレートのHTMLなどを利用したほうがよいのでしょうか。
-	#REVIEW 時間順位以外にユーザーとの距離の組み合わせで表記をさせたいのですが、ロジックをどこに表記してそれがどのように反映させるのか不明
+<ul>
     <% @articles.each do |article| %>
-    <p><li><%= link_to article.herenowtitle+"/", article_path(article.id) %> 
+    <p><li><%= image_tag article.image.thumb.url %>
+    	<%= link_to article.herenowtitle+"/", article_path(article.id) %> 
     	<%= link_to article.title, article_path(article.id) %></li></p>
     	  <%= time_ago_in_words(article.created_at) %> ago.
     <% end %>

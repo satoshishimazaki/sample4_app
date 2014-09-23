@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922023515) do
+ActiveRecord::Schema.define(version: 20140923094023) do
 
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140922023515) do
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
