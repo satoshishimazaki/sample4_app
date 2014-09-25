@@ -7,7 +7,7 @@
      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :herenowtitle %>
-      <%= f.text_field :herenowtitle %>
+      <%= f.select :herenowtitle, ['旬', 'お得'], { include_blank: '選択してください' }, class: 'herenow' %>
 
       <%= f.label :title %>
       <%= f.text_field :title %>
