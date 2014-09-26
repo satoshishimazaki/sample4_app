@@ -13,6 +13,11 @@ class ArticlesController < ApplicationController
       @articles = current_store.articles.paginate(page: params[:page])
   end
 
+  def index_eat
+      @segments = Segment.where(name: '食事')
+      @articles = segments.articles
+  end
+
   def create
   	  @article = current_store.articles.build(article_params)
     if @article.save

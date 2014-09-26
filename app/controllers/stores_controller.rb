@@ -7,6 +7,7 @@ class StoresController < ApplicationController
 
   def new
   	 @store = Store.new
+     @store.build_segment
   end
 
   def create
@@ -23,7 +24,7 @@ class StoresController < ApplicationController
   private
 
     def store_params
-      params.require(:store).permit(:name, :email, :address, :tell, :url, :password, :password_confirmation)
+      params.require(:store).permit(:name, :email, :address, :tell, :url, :password, :password_confirmation, :segment_id, :segment_attributes)
     end
 
 end

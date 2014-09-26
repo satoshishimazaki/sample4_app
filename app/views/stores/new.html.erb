@@ -6,6 +6,11 @@
     <%= form_for(@store) do |f| %>
      <%= render 'shared/error_messages', object: f.object %>
 
+      <%= f.fields_for :segment do |f_segment| %>
+          <%= f_segment.label :'業態' %>
+          <%= f_segment.text_field :name %>
+      <% end %>
+
       <%= f.label :name %>
       <%= f.text_field :name %>
 

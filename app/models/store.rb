@@ -1,5 +1,7 @@
 class Store < ActiveRecord::Base
 	has_many :articles, dependent: :destroy
+	belongs_to :segment
+	accepts_nested_attributes_for :segment
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }

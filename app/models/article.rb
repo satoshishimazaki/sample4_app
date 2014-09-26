@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
 	belongs_to :store
+	belongs_to :segment
 	default_scope -> { order('created_at DESC') }
 	validates :herenowtitle, presence: true
 	validates :title, presence: true

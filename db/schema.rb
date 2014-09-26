@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923094023) do
+ActiveRecord::Schema.define(version: 20140926054937) do
 
   create_table "articles", force: true do |t|
     t.string   "herenowtitle"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140923094023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "category_id"
   end
 
   add_index "articles", ["store_id", "created_at"], name: "index_articles_on_store_id_and_created_at"
@@ -35,19 +36,27 @@ ActiveRecord::Schema.define(version: 20140923094023) do
 
   add_index "articles_images", ["article_id"], name: "index_articles_images_on_article_id"
 
-  create_table "stores", force: true do |t|
+  create_table "categories", force: true do |t|
     t.string   "name"
-    t.string   "email"
-    t.string   "address"
-    t.integer  "tell"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
   end
 
-  add_index "stores", ["email"], name: "index_stores_on_email", unique: true
-  add_index "stores", ["remember_token"], name: "index_stores_on_remember_token"
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "segments", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+# Could not dump table "stores" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

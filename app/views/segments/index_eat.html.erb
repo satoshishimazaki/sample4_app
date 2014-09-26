@@ -1,0 +1,8 @@
+<% provide(:title, 'Home') %>
+<div class="center hero-unit">
+  <h1>Let's enjoy HereNow!!</h1>
+<p><% @segment.articles.each do |article| %>
+   <%= article %> 
+   <% end %>
+</p>
+</div>
