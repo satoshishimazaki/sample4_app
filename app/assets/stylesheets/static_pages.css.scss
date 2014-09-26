@@ -57,6 +57,15 @@ h2 {
   color: $grayLight;
 }
 
+h3 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: normal;
+  color: $grayLight;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -199,5 +208,17 @@ aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
+  }
+}
+
+/* home */
+
+.row {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 2px solid #888888;
   }
 }

@@ -13,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # thumb バージョン(width 400px x height 200px)
   version :thumb do
-    process :resize_to_fit => [400, 200]
+    process :resize_to_fit => [700, 400]
   end
 
   # 許可する画像の拡張子

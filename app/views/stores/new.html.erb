@@ -8,7 +8,8 @@
 
       <%= f.fields_for :segment do |f_segment| %>
           <%= f_segment.label :'業態' %>
-          <%= f_segment.text_field :name %>
+          <%= f_segment.select :name, ['食事', 'shopping', 'その他'], { include_blank: 
+            '選択してください' }, class: 'segment' %>
       <% end %>
 
       <%= f.label :name %>
